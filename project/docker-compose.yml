@@ -19,12 +19,9 @@ services:
     build:
       context: .
       dockerfile: app.Dockerfile
-    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432
       - RAILS_SERVE_STATIC_FILES=true
-    # ports:
-    #   - "3000"
     depends_on:
       - db
     # restart: always
