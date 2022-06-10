@@ -1,11 +1,14 @@
 version: "3"
+
 services:
   nginx:
     build:
       context: .
       dockerfile: ./nginx.Dockerfile
     depends_on:
-      - app
+      - app1
+      - app2
+      - app3
     ports:
       - "8080:80"
   db:
@@ -15,13 +18,38 @@ services:
     ports:
       - "5432:5432"
 
-  app:
+  app1:
     build:
       context: .
       dockerfile: app.Dockerfile
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432
       - RAILS_SERVE_STATIC_FILES=true
+    ports:
+      - "5001:3000"
     depends_on:
       - db
-    # restart: always
+    
+  app2:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432
+      - RAILS_SERVE_STATIC_FILES=true
+    ports:
+      - "5002:3000"
+    depends_on:
+      - db
+
+  app3:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432
+      - RAILS_SERVE_STATIC_FILES=true
+    ports:
+      - "5003:3000"
+    depends_on:
+      - db
