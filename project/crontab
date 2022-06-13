@@ -1,1 +1,1 @@
-55 23 * * * /var/lib/postgresql/data > /var/backups
+55 23 * * * pg_dump /var/lib/postgresql/data > /var/backups
