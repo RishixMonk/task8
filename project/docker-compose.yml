@@ -12,7 +12,9 @@ services:
     ports:
       - "8080:80"
   db:
-    image: postgres
+    build:
+      context: .
+      dockerfile: ./db.Dockerfile
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
