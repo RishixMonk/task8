@@ -1,24 +1,7 @@
-# README
+As i was using postgres database,To run cron jobs inside a postgres database,tried to update postgres version and install cron in a seperate dockerfile.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+create a crontab with command of storing postrgres data in backup file every day of every month at 11:55 pm. 
 
-Things you may want to cover:
+copy crontab in /etc/cron.d/crontab and run the cron job.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then in dockercompose build database image with this dockerfile.
